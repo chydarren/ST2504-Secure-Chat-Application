@@ -28,6 +28,13 @@ Clone this repository in any directory and run the server and client programs.
 
 This program was developed as an assignment for the Singapore Polytechnic, ST2504 Applied Cryptography module. I have uploaded the source files publicly for reference and personal usage only. Please refrain from [plagiarising](https://www.sp.edu.sg/sp/student-services/ssc-overview/student-handbook/intellectual-property-copyright-and-plagiarism) or passing it off as your own work. 
 
+**Developers**
+
+- Chua Han Yong Darren ([@chydarren](https://github.com/chydarren))
+- Daryl Lim Kai Zhi ([@PlatyPew](https://github.com/PlatyPew))
+- Joshua Soh K Jyn ([@PotatoPatata](https://github.com/PotatoPatata))
+- Chng Wei Cheng
+
 ## Copyright and License 
 
 Chua Han Yong Darren © 2017. Code released under the GNU Affero General Public License v3.0.
