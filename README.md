@@ -22,7 +22,7 @@ time constraints and project requirements.
 
 ## Usage
 
-Clone this repository in any directory and run the server and client programs.
+Clone this repository into any directory and run the server and client programs.
 
 ## Disclaimer
 
