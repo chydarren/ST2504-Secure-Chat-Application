@@ -1,7 +1,3 @@
-/**
- * Authors: Darren, Daryl, Wei Cheng, Joshua
- */
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,13 +5,16 @@
  */
 package AppliedCrypto;
 
+/**
+ *
+ * @author darre
+ */
 import java.io.*;
 import java.net.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.crypto.*;
 import java.security.*;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,7 +31,6 @@ public class Server {
     private ServerGUI sg;
     // to display time
     private SimpleDateFormat sdf;
-    private SimpleDateFormat timeStamp;
     // the port number to listen for connection
     private int port;
     // the pin 
@@ -64,7 +62,6 @@ public class Server {
         this.pin = pin;
         // to display hh:mm:ss
         sdf = new SimpleDateFormat("HH:mm:ss");
-        timeStamp = new SimpleDateFormat("HH:mm");
         // ArrayList for the Client list
         al = new ArrayList<ClientThread>();
     }
@@ -334,47 +331,31 @@ public class Server {
         public void run() {
             // to loop until LOGOUT
             boolean keepGoing = true;
-            String message = "";
+            String message;
             int type;
-            int spamCount = 0;
             while (keepGoing) {
                 // read a String (which is an object)
                 try {
-                    long startTime = System.currentTimeMillis();
                     byte[] clientSignedData = (byte[])sInput.readObject();
                     byte[] clientData = (byte[])sInput.readObject();
                     byte[] encMessage = (byte[])sInput.readObject();
-                    long endTime = System.currentTimeMillis();
-                    long totalTime = endTime - startTime;
-                    if (totalTime < 1000) {
-                        spamCount++;
-                        if (spamCount == 5) {
-                            broadcast(username + " will be kicked if spamming continues");
-                        }
-                    } else {
-                        spamCount = 0;
-                    }
                     Signature signature = Signature.getInstance("SHA256withRSA");
                     signature.initVerify(clientPub);
-                    signature.update(new byte[clientData.length + timeStamp.format(new Date()).getBytes().length]);
+                    signature.update(clientData);
+                    
                     if (!signature.verify(clientSignedData)) {
                         display("User: " + username + " cert has changed.");
                         break;
                     }
-                    if (spamCount < 10) {
-                        Cipher aesCipher = Cipher.getInstance("AES");
-                        aesCipher.init(Cipher.DECRYPT_MODE, AESKey);
-
-                        byte[] byteMsg = aesCipher.doFinal(encMessage);
-                        ByteArrayInputStream bi = new ByteArrayInputStream(byteMsg);
-                        ObjectInputStream si = new ObjectInputStream(bi);
-                        ChatMessage cm = (ChatMessage) si.readObject();
-                        message = cm.getMessage();
-                        type = cm.getType();
-                    } else {
-                        broadcast(username + " has been kicked for spamming");
-                        type = 2;
-                    }
+                    Cipher aesCipher = Cipher.getInstance("AES");
+                    aesCipher.init(Cipher.DECRYPT_MODE, AESKey);
+                    
+                    byte[] byteMsg = aesCipher.doFinal(encMessage);
+                    ByteArrayInputStream bi = new ByteArrayInputStream(byteMsg);
+                    ObjectInputStream si = new ObjectInputStream(bi);
+                    ChatMessage cm = (ChatMessage) si.readObject();
+                    message = cm.getMessage();
+                    type = cm.getType();
                 } catch (IOException e) {
                     try {
                         display(username + " Exception reading Streams: " + e);
@@ -393,7 +374,7 @@ public class Server {
                     case ChatMessage.MESSAGE: {
                         try {
                             if (badWord(message)) {
-                                broadcast(username + ": has been censored.");
+                                broadcast(username + " has been censored.");
                             } else {
                                 broadcast(username + ": " + message);
                             }

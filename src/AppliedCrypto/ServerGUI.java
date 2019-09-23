@@ -1,7 +1,3 @@
-/**
- * Authors: Darren, Daryl, Wei Cheng, Joshua
- */
-
 // package 
 package AppliedCrypto;
 
