@@ -22,7 +22,11 @@ time constraints and project requirements.
 
 ## Usage
 
-Clone this repository into any directory and run the server and client programs.
+1. Clone this repository into any directory. 
+
+2. Enter the "secure-chat-application" directory by typing `cd secure-chat-application`.
+
+3. Run the client and server programs.
 
 ## Disclaimer
 
