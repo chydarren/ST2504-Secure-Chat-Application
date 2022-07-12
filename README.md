@@ -30,7 +30,7 @@ time constraints and project requirements.
 
 - **Darren Chua** | [@chydarren](https://github.com/chydarren)
 - **Daryl Lim** | [@PlatyPew](https://github.com/PlatyPew)
-- **Joshua Soh** | [@PotatoPatata](https://github.com/PotatoPatata)
+- **Joshua Soh** | [@PototoPatata](https://github.com/PototoPatata)
 - **Chng Wei Cheng**
 
 ## Credits
