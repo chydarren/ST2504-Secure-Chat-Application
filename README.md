@@ -1,8 +1,6 @@
 # Secure Chat Application
 
-## Introduction
-
-This is a Java program that simulates a chat server that enables secure communication within 2 or more parties over a network, such as over
+***Secure Chat Application*** is a Java program that simulates a chat server that enables secure communication within 2 or more parties over a network, such as over
 a Local Area Network (LAN) or over the Internet. One of the computers acts as a chat server, and the other acts as a chat client.
 
 The server and client are required to acknowledge each other’s presence through authentication and communicate securely through the use of 
@@ -28,18 +26,16 @@ time constraints and project requirements.
 
 3. Run the client and server programs.
 
-## Disclaimer
+## Acknowledgements
 
-This program was developed as an assignment for the Singapore Polytechnic, ST2504 Applied Cryptography module. I have uploaded the source files publicly for reference and personal usage only. Please refrain from [plagiarising](https://www.sp.edu.sg/sp/student-services/ssc-overview/student-handbook/intellectual-property-copyright-and-plagiarism) or passing it off as your own work. 
-
-**Developers**
-
-- Chua Han Yong Darren ([@chydarren](https://github.com/chydarren))
-- Daryl Lim Kai Zhi ([@PlatyPew](https://github.com/PlatyPew))
-- Joshua Soh K Jyn ([@PotatoPatata](https://github.com/PotatoPatata))
-- Chng Wei Cheng
+- **Chua Han Yong Darren** | [@chydarren](https://github.com/chydarren)
+- **Daryl Lim Kai Zhi** | [@PlatyPew](https://github.com/PlatyPew)
+- **Joshua Soh K Jyn** | [@PotatoPatata](https://github.com/PotatoPatata)
+- **Chng Wei Cheng**
 
 ## Copyright and License 
+
+This program was developed as an assignment for the Singapore Polytechnic, ST2504 Applied Cryptography module. I have uploaded the source files publicly for reference and personal usage only. Please refrain from [plagiarising](https://www.sp.edu.sg/sp/student-services/ssc-overview/student-handbook/intellectual-property-copyright-and-plagiarism) or passing it off as your own work. 
 
 Chua Han Yong Darren © 2017. Code released under the GNU Affero General Public License v3.0.
 
